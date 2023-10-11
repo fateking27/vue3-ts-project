@@ -121,7 +121,7 @@ const pageChange = (page: number, pageSize: number) => {
     pageData.pageSize = pageSize
 }
 
-
+//this is the way !!
 </script>
   
   
