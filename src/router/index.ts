@@ -60,7 +60,7 @@ router.beforeEach(async (to) => {
             if (item.path.includes('*')) {
                 router.addRoute({
                     path: "/:catchAll(.*)*",
-                    component: () => import(`../views/404/NotFonud.vue`)
+                    component: () => import('../views/404/NotFonud.vue')
                 })
             } else {
                 router.addRoute({

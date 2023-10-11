@@ -10,7 +10,8 @@ const global = {
     getMenus: (data: UserItem) => http.get('/menu/' + data.username),
     getUsers: (data?: any) => http.get("/user", data),
     // getUsers:() => http.get('/user'),
-    getRecord: (data: UserItem) => http.get('/index/' + data.username)
+    getRecord: (data: UserItem) => http.get('/index/' + data.username),
+    getDept:() => http.get('/dept')
 }
 
 export default global;
