@@ -2,31 +2,46 @@
   <a-layout>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <!-- 侧边栏组件 -->
-      <SideMenu style="overflow-y: scroll;"></SideMenu>
-
+      <SideMenu style="overflow-y: scroll"></SideMenu>
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
-        <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
-        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+        <menu-unfold-outlined
+          v-if="collapsed"
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+        <menu-fold-outlined
+          v-else
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
       </a-layout-header>
-      <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
+      <a-layout-content
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
+      >
         <!-- 路由出口 -->
         <router-view></router-view>
-        
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
-  
+
 <script lang="ts" setup>
-import { ref } from 'vue';
-import SideMenu from '../components/SideMenu/SideMenu.vue';
+import { ref } from "vue";
+import SideMenu from "@/components/SideMenu/SideMenu.vue";
 const collapsed = ref<boolean>(false);
 </script>
 
 <style>
-::-webkit-scrollbar {display:none}
+::-webkit-scrollbar {
+  display: none;
+}
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;
@@ -49,5 +64,3 @@ const collapsed = ref<boolean>(false);
   background: #fff;
 }
 </style>
-  
-  

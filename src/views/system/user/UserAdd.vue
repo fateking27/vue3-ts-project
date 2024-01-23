@@ -1,6 +1,15 @@
 <template>
   <a-button type="primary" @click="showDrawer">新增用户</a-button>
+<<<<<<< HEAD
   <a-drawer v-model:open="open" title="新增用户" placement="right" width="50%">
+=======
+  <a-drawer
+    v-model:open="open"
+    title="新增用户"
+    placement="right"
+    width="500px"
+  >
+>>>>>>> bd5a22e9f0a856bbff5149f278f53cd556a65069
     <a-form
       :model="formState"
       v-bind="layout"
@@ -71,6 +80,7 @@
   </a-drawer>
 </template>
 <script lang="ts" setup>
+<<<<<<< HEAD
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
 // 编辑器实例，必须用 shallowRef
@@ -93,20 +103,45 @@ const handleCreated = (editor: any) => {
   editorRef.value = editor; // 记录 editor 实例，重要！
 };
 
+=======
+import { ref, reactive, watchEffect } from "vue";
+import api from '../../../api/index'
+>>>>>>> bd5a22e9f0a856bbff5149f278f53cd556a65069
 const open = ref<boolean>(false);
 
 const showDrawer = () => {
   open.value = true;
+<<<<<<< HEAD
+=======
+};
+const closeDrawer = () => {
+  open.value = false;
+  clearValue()
+>>>>>>> bd5a22e9f0a856bbff5149f278f53cd556a65069
 };
 
 const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 16 },
+<<<<<<< HEAD
+=======
+};
+
+const clearValue = () => {
+  formState.user = {
+    name: "",
+    age: "",
+    email: "",
+    password: "",
+    introduction: "",
+  };
+>>>>>>> bd5a22e9f0a856bbff5149f278f53cd556a65069
 };
 
 const formState = reactive({
   user: {
     name: "",
+<<<<<<< HEAD
     password: "",
     phone: "",
     email: "",
@@ -117,5 +152,27 @@ const formState = reactive({
 });
 const onFinish = (values: any) => {
   console.log("Success:", values);
+=======
+    age: "",
+    email: "",
+    password: "",
+    introduction: "",
+  },
+});
+const onFinish = (values: any) => {
+  console.log("data:", values);
+  open.value = false;
+  clearValue()
+  console.log(formState.user)
+>>>>>>> bd5a22e9f0a856bbff5149f278f53cd556a65069
 };
+
+const getDept = async () => {
+  const res:any = await api.global.getDept()
+  console.log('dept:',res)
+}
+
+watchEffect(()=>{
+  getDept()
+})
 </script>

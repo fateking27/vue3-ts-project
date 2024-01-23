@@ -15,8 +15,8 @@ export const userMenus = defineStore('menus', {
             if (user) {
                 const { username } = JSON.parse(user)
                 const res: any = await api.global.getMenus({ username })
-                console.log('menu',res)
                 this.menuRoutes = res
+                console.log('menu',this.menuRoutes)
             }
         }
     }
