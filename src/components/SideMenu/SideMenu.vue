@@ -17,6 +17,7 @@ const router = useRouter()
 //路由跳转
 const menuTo = (item: any) => {
   router.push(item.key)
+  console.log(item)
 }
 
 const state = reactive({

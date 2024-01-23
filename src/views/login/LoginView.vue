@@ -13,7 +13,7 @@ const router = useRouter()
 //登录
 const login = async () => {
     const res = await api.global.login({
-        // username: "admin1",
+        // username: "admin",
         username: "bobo",
         password: "1234qwer"
     })

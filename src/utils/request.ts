@@ -21,6 +21,7 @@ instance.interceptors.response.use(
     (err) => {
         if (err.response && err.response.status === 401) {
             location.href = '/login'
+            // location.reload()
         }
         return Promise.reject(err);
     }
